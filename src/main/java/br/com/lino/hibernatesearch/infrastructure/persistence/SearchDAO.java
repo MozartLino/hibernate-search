@@ -20,13 +20,14 @@ public class SearchDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> list() {
+	public List<T> buscaByName() {
 		FullTextSession fullTextSession = Search.getFullTextSession(session);
-
+		
 		QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(Book.class).get();
 		Query query = qb.keyword()
+				.fuzzy()
 				.onFields("title", "subtitle", "authors.name")
-				.matching("title")
+				.matching("sabid")
 				.createQuery();
 
 		FullTextQuery createFullTextQuery = fullTextSession.createFullTextQuery(query, Book.class);

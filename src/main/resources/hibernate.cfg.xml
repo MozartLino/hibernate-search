@@ -15,7 +15,7 @@
 		<property name="show_sql">true</property>
 		
 		<property name="hibernate.search.default.directory_provider">filesystem</property> 
-		<property name="hibernate.search.default.indexBase">indexes</property> 
+		<property name="hibernate.search.default.indexBase">indexes</property>
 		
 		<mapping class="br.com.lino.hibernatesearch.domain.model.Author" />
 		<mapping class="br.com.lino.hibernatesearch.domain.model.Book" />
